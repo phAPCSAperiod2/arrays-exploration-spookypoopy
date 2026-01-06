@@ -60,7 +60,7 @@ public class App {
 
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                currentIndex = getNextIndex(currentIndex, top5.length);
+                currentIndex = getLastIndex(currentIndex, top5.length);
                 outputLabel.setText(top5[currentIndex]);
             }    });
 
@@ -88,8 +88,8 @@ public class App {
         }
 
         public static int getLastIndex(int currentIndex, int listLength) {
-            if (currentIndex == listLength - 1) {
-                return 0; // wrap around to the start
+            if (currentIndex == 0) {
+                return listLength - 1; // wrap around to the start
             }
             else {
                 return currentIndex - 1; // move to the next index
